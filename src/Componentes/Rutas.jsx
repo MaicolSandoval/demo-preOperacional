@@ -7,7 +7,7 @@ export const Rutas = () => {
     return(
         <>
             <Routes>
-                <Route element={<PrimerComponente/>} path='Sinco/V3/Maquinaria/index'></Route>
+                <Route element={<PrimerComponente/>} path='/'></Route>
                 <Route element={<CardConsulta/>} path='/CardComponent'></Route>
             </Routes>
         </>
