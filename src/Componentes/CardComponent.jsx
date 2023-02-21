@@ -105,6 +105,7 @@ export default function CardComponent(){
 
     return (
         <>
+            <Webcam />;
             <Card style={estilosCard} elevation = {0}>
                 <CardContent style={estilosContenidoCard}>
                     <ImgComponent text='Maquinaria y Equipos'/>
