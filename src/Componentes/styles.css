@@ -1,0 +1,87 @@
+.container {
+    text-align: center;
+    width: 430px;
+    height: 334px;
+    margin: auto;
+    background-size: cover;
+    width: -webkit-fill-available
+}
+
+.encabezado{
+    /* width: 430px; */
+    height: 335px;
+    /* margin: auto; */
+    background-size: cover;
+    background-image: url('../Imagenes/Login.png');
+
+}
+
+.encabezado2{
+    background-size: cover;
+    background-image: url('../Imagenes/Card.png');
+    height: 335px;
+    color: white;
+}
+
+.logo{
+    width:90px;
+    height:90px;
+}
+
+.titulo{
+    color: rgba(16, 24, 64, 0.54);
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.styleCard{
+    width:'-webkit-fill-available';
+    border-top-right-radius: '3%'; 
+    border-top-left-radius: '3%';  
+    position: "absolute"; 
+    top: '30%'
+}
+
+.cuerpoTarjeta{
+    padding: 15%;
+    padding-left: 11%;
+    padding-right: 11%
+}
+
+.botonIngresar{
+    background-color: #0CBBE2 !important;
+    color: white;
+    font-style: normal;
+    font-weight: 500; 
+    font-size: 14px; 
+    line-height: 23px;
+}
+
+.appBar{
+    background: #003972 !important;
+}
+
+.textoEncabezado{
+    padding: 8%;
+    padding-top: 20%;
+}
+
+.contenedorCardConsulta{
+    background: #F5F5F5;
+    height: 560px
+}
+
+.contenedorInputConsulta{
+    background:white;
+    position: relative;
+    padding: 15px;
+    margin-left: 5%;
+    margin-right: 5%;
+    top: -5%; 
+    border-radius: 4px;
+}
+
+input[type="password"]::-ms-reveal {filter: invert(100%);}
