@@ -63,8 +63,10 @@ export default function CardComponent(){
     }
 
     const ValidacionEjemplo = () => {
-
-        <Webcam />;
+        return(
+            <Webcam />
+        )
+        
 
         // if(window.innerWidth <= 768){
         //    alert('Es movil')
