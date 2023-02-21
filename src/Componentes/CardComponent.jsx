@@ -66,11 +66,11 @@ export default function CardComponent(){
 
         <Webcam />;
 
-        if(window.innerWidth <= 768){
-           alert('Es movil')
-        }else{
-            alert('Es pc')
-        }
+        // if(window.innerWidth <= 768){
+        //    alert('Es movil')
+        // }else{
+        //     alert('Es pc')
+        // }
     }
 
     // useEffect(()=>{
