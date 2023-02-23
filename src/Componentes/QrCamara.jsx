@@ -2,22 +2,32 @@ import React from "react";
 // import Webcam from "react-webcam";
 import { QrReader } from "react-qr-reader";
 import { useState } from "react";
-
+import { TextField } from "@mui/material";
 
 
 export const QRcamara = () => {
 
-    const [valor , setValor] = useState('')
+    //const [valor , setValor] = useState('')
 
-    const handleErrorWebCam = (error) => {
-        console.log(error);
-    }                                
-
-    const handleScanWebCam = (result) => {
-        if (result){
-            setValor(result);
+    const [qrscan, setQrscan] = useState('No result');
+    const handleScan = data => {
+        if (data) {
+            setQrscan(data)
         }
     }
+    const handleError = err => {
+    console.error(err)
+    }
+
+    // const handleErrorWebCam = (error) => {
+    //     console.log(error);
+    // }                                
+
+    // const handleScanWebCam = (result) => {
+    //     if (result){
+    //         setValor(result);
+    //     }
+    // }
 
     return(
        
@@ -28,15 +38,24 @@ export const QRcamara = () => {
 
             delay={300}
             style={{width: '100%'}}
-            onError={handleErrorWebCam}
-            onScan={handleScanWebCam}
+            onError={handleError}
+            onScan={handleScan}
 
             onResult={(result, error) => {
                 // stuff...
             }}
             />
 
-            <h3>Scanned By WebCam Code: {valor}</h3>
+            <TextField
+                id="outlined-multiline-static"
+                label="Multiline"
+                multiline
+                rows={4}
+                defaultValue={qrscan}
+                value={qrscan}
+            />
+
+            {/* <h3>Scanned By WebCam Code: {qrscan}</h3> */}
         </>
        
     )
