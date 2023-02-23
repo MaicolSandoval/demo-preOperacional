@@ -1,6 +1,6 @@
 import Webcam from "react-webcam";
 import {QrReader} from 'react-qr-reader'
-alert("cambio")
+
 
 export const WebCam = () => {
     return(
@@ -8,12 +8,10 @@ export const WebCam = () => {
         <QrReader 
             delay={300}
             constraints={{
-                facingMode: 'user'
+                facingMode: 'environment'
             }}
             style={{ width: '100%' }}
-            legacyMode={false}
-            
+            legacyMode={true}
         />
-        
     )
 }
