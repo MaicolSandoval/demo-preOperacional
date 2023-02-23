@@ -11,6 +11,7 @@ export const WebCam = () => {
                 facingMode: 'environment'
             }}
             style={{ width: '100%' }}
+            legacyMode={true}
         />
     )
 }
