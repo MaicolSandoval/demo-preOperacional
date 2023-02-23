@@ -64,11 +64,9 @@ export default function CardComponent(){
 
     const ValidacionEjemplo = () => {
        alert("pruebas en otro componente")
-        // if(window.innerWidth <= 768){
-        //    alert('Es movil')
-        // }else{
-        //     alert('Es pc')
-        // }
+       return(
+            navigation('/QRCamara')
+        )
     }
 
     // useEffect(()=>{
