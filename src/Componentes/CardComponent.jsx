@@ -63,7 +63,6 @@ export default function CardComponent(){
     }
 
     const ValidacionEjemplo = () => {
-       alert("pruebas en otro componente")
        return(
             navigation('/QRCamara')
         )

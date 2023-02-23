@@ -1,25 +1,44 @@
 import React from "react";
 // import Webcam from "react-webcam";
 import { QrReader } from "react-qr-reader";
+import { useState } from "react";
+
 
 
 export const QRcamara = () => {
+
+    const [valor , setValor] = useState('')
+
+    const handleErrorWebCam = (error) => {
+        console.log(error);
+    }                                
+
+    const handleScanWebCam = (result) => {
+        if (result){
+            setValor(result);
+        }
+    }
+
     return(
-        // <Webcam/>
+       
+       <>
+            <QrReader
+            key="environment"
+            constraints={{ facingMode: 'environment' }}
 
-        <QrReader
-        key="environment"
-        constraints={{ facingMode: 'environment' }}
-        onResult={(result, error) => {
-            // stuff...
-        }}
-        />
+            delay={300}
+            style={{width: '100%'}}
+            onError={handleErrorWebCam}
+            onScan={handleScanWebCam}
 
-        // <QrReader
+            onResult={(result, error) => {
+                // stuff...
+            }}
+            />
 
-        //  facingMode= { {exact: "environment"} }
-
-        // />
+            <h3>Scanned By WebCam Code: {valor}</h3>
+        </>
+       
     )
 }
 
