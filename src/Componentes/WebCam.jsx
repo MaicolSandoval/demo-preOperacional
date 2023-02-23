@@ -8,7 +8,7 @@ export const WebCam = () => {
         <QrReader 
             delay={300}
             constraints={{
-                facingMode: 'environment'
+                facingMode: 'user'
             }}
             style={{ width: '100%' }}
             legacyMode={true}
