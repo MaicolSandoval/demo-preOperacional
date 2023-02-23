@@ -1,6 +1,6 @@
 import Webcam from "react-webcam";
 import {QrReader} from 'react-qr-reader'
-
+alert("cambio")
 
 export const WebCam = () => {
     return(
@@ -14,5 +14,6 @@ export const WebCam = () => {
             legacyMode={false}
             
         />
+        
     )
 }
