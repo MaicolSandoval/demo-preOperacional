@@ -63,11 +63,7 @@ export default function CardComponent(){
     }
 
     const ValidacionEjemplo = () => {
-       alert("pruebas")
-       return(
-        navigation('/CamaraQR')
-        )
-
+       alert("pruebas en otro componente")
         // if(window.innerWidth <= 768){
         //    alert('Es movil')
         // }else{
