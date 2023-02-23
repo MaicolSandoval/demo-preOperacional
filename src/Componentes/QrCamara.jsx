@@ -8,7 +8,9 @@ export const QRcamara = () => {
     return(
         // <Webcam/>
         <QrReader
-         facingMode= 'user'
+
+         facingMode= { {exact: "environment"} }
+
         />
     )
 }
