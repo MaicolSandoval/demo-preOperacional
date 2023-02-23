@@ -63,9 +63,7 @@ export default function CardComponent(){
     }
 
     const ValidacionEjemplo = () => {
-        return(
-            navigation('/CamaraQR')
-        )
+       alert("pruebas")
         
 
         // if(window.innerWidth <= 768){
