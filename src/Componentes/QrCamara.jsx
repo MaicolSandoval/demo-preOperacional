@@ -2,7 +2,7 @@ import React from "react";
 // import Webcam from "react-webcam";
 import { QrReader } from "react-qr-reader";
 import { useState } from "react";
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 
 
 export const QRcamara = () => {
@@ -45,7 +45,7 @@ export const QRcamara = () => {
                 // stuff...
             }}
             />
-
+            <Button onClick={handleScan}>Scanner</Button>
             <TextField
                 id="outlined-multiline-static"
                 label="Multiline"
