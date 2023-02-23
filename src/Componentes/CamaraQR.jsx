@@ -4,6 +4,8 @@ import { QrReader } from "react-qr-reader";
 
 export const QRCamara = () => {
     return(
-        <QrReader/>
+        <QrReader
+            facingMode="environment"
+        />
     )
 }
