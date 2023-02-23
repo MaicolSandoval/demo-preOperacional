@@ -22,7 +22,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Visibility from '@mui/icons-material/Visibility';
 import { useNavigate } from "react-router";
 
-import Webcam from "./WebCam";
+
 
 import { useAxios } from "../hooks/useAxios";
 import { useEffect } from "react";
@@ -64,7 +64,7 @@ export default function CardComponent(){
 
     const ValidacionEjemplo = () => {
         return(
-            navigation('/WebCam')
+            navigation('/CamaraQR')
         )
         
 
