@@ -59,7 +59,7 @@ export const PruebaQr = () => {
                 onResult={(result, error) => {
                   if (!!result) {
                     setScanResultWebCam(result?.text);
-                    <h3>Resultados de búsqueda: {scanResultWebCam}</h3> 
+                    
                   }
         
                   if (!!error) {
@@ -67,7 +67,7 @@ export const PruebaQr = () => {
                   }
                 }}
               /> 
-              
+              <h3>Resultados de búsqueda: {scanResultWebCam}</h3> 
             </Grid> 
             
             
