@@ -43,61 +43,63 @@ export const PruebaQr = () => {
     }
    }
   return (
-    <Container >
-          <Card>
-              <h2 >Generate Download & Scan QR Code with React js</h2>
-              <CardContent>
-                  <Grid container spacing={2}>
-                     
-                      <Grid item xl={4} lg={4} md={6} sm={12} xs={12}>
-                        <TextField label="Escriba" onChange={(e) => setText(e.target.value)} />
-                          <Button  variant="contained" 
-                            color="primary" onClick={ () => generateQrCode()  }>Generar</Button>
-                            <br/>
-                            <br/>
-                            <br/>
-                            {imageUrl ? (
-                              <a href={imageUrl} download>
-                                  <img src={imageUrl} alt="img"/>
-                              </a>) : null} 
-                      </Grid>
+    <Container>
+      <Card>
+        <CardContent>
+          <Grid container spacing={2}>
+            <Grid item xl={12} lg={12} md={12} sm={12} xs={12} style={{textAlign:"center"}}>
+              <h2>Escanear QR</h2>
+              <QrReader
+                key="environment"
+                constraints={{ facingMode: 'environment' }}
+                delay={300}
+                style={{width: '100%'}}
+                onError={handleErrorWebCam}
+                onScan={handleScanWebCam}
+                onResult={(result, error) => {
+                  if (!!result) {
+                    setScanResultWebCam(result?.text);
+                    <h3>Resultados de búsqueda: {scanResultWebCam}</h3> 
+                  }
+        
+                  if (!!error) {
+                    console.info(error);
+                  }
+                }}
+              /> 
+              
+            </Grid> 
+            
+            
+            <Grid item xl={12} lg={12} md={12} sm={12} xs={12} style={{textAlign: 'center'}}>
+              <h2>Crear QR</h2>
+              <TextField label="Escriba" onChange={(e) => setText(e.target.value)}  size="small"/>
+              <Button  variant="contained" color="primary" onClick={ () => generateQrCode() }>Generar</Button>
+              <br/>
+              <br/>
+              <br/>
+              {imageUrl ? (
+                <a href={imageUrl} download>
+                    <img src={imageUrl} alt="img"/>
+                </a>) : null} 
+            </Grid>
 
-                      <Grid item xl={4} lg={4} md={6} sm={12} xs={12}>
-                        {/* <Button  variant="contained" color="secondary" onClick={onScanFile}>Scan Qr Code</Button>
-                        <QrReader
-                          ref={qrRef}
-                          delay={300}
-                          style={{width: '100%'}}
-                          onError={handleErrorFile}
-                          onScan={handleScanFile}
-                          legacyMode
-                        />
-                        <h3>Scanned Code: {scanResultFile}</h3> */}
-                      </Grid>
-                      <Grid item xl={4} lg={4} md={6} sm={12} xs={12}>
-                         {/* <h3>Qr Code Scan by Web Cam</h3> */}
-                          <QrReader
-                            key="environment"
-                            constraints={{ facingMode: 'environment' }}
-                            delay={300}
-                            style={{width: '100%'}}
-                            onError={handleErrorWebCam}
-                            onScan={handleScanWebCam}
-                            onResult={(result, error) => {
-                              if (!!result) {
-                                setScanResultWebCam(result?.text);
-                              }
-                    
-                              if (!!error) {
-                                console.info(error);
-                              }
-                            }}
-                         /> 
-                         <h3>Scanned By WebCam Codeddd: {scanResultWebCam}</h3> 
-                      </Grid> 
-                  </Grid>
-              </CardContent>
-          </Card>
+            <Grid item xl={4} lg={4} md={6} sm={12} xs={12}>
+              {/* <Button  variant="contained" color="secondary" onClick={onScanFile}>Scan Qr Code</Button>
+              <QrReader
+                ref={qrRef}
+                delay={300}
+                style={{width: '100%'}}
+                onError={handleErrorFile}
+                onScan={handleScanFile}
+                legacyMode
+              />
+              <h3>Scanned Code: {scanResultFile}</h3> */}
+            </Grid>
+              
+          </Grid>
+        </CardContent>
+      </Card>
     </Container>
   );
 }
