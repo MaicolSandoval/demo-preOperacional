@@ -58,17 +58,17 @@ export const PruebaQr = () => {
                 onScan={handleScanWebCam}
                 onResult={(result, error) => {
                   if (!!result) {
+                    console.log(result.text)
                     setScanResultWebCam(result?.text);
-                    
                   }
         
-                  if (!!error) {
+                  if (!!error && result) {
                     console.info(error);
                   }
                 }}
               /> 
-              <h3>Resultados de búsqueda: {scanResultWebCam}</h3> 
-              <Button  variant="contained" color="primary">Nueva búsqueda</Button>
+              <h2>Resultados de escaner: {scanResultWebCam}</h2> 
+              <a  href={scanResultWebCam}>link</a>
             </Grid> 
             
             
