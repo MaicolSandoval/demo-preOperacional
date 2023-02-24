@@ -68,6 +68,7 @@ export const PruebaQr = () => {
                 }}
               /> 
               <h3>Resultados de búsqueda: {scanResultWebCam}</h3> 
+              <Button  variant="contained" color="primary">Nueva búsqueda</Button>
             </Grid> 
             
             
