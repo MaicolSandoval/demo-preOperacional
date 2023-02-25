@@ -131,7 +131,7 @@ export default function CardComponent(){
                             <Typography>Ingresar</Typography> 
                         </Button>
                         <Button variant="contained" disableElevation className="botonIngresar" onClick={ValidacionEjemplo}>
-                            <Typography>Ejemplo</Typography> 
+                            <Typography>Demo QR</Typography> 
                         </Button>
                     </Stack>
                     <ImgComponent src={sinco} style={{width: 130, height: 70, margin: 'auto', marginTop: '5%'}} />

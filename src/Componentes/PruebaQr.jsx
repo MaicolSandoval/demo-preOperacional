@@ -1,10 +1,7 @@
 import React, {useState, useRef} from 'react';
 import {Container, Card, CardContent, makeStyles, Grid, TextField, Button, AppBar, Toolbar, Typography} from '@mui/material';
-import EventIcon from '@mui/icons-material/Event';
 import QRCode from 'qrcode';
 import {QrReader} from 'react-qr-reader';
-import { Encabezado } from './Encabezado';
-
 
 export const PruebaQr = () => { 
 
@@ -42,19 +39,16 @@ export const PruebaQr = () => {
   }
   const handleScanWebCam = (result) => {
     if (result){
-        setScanResultWebCam(result);
+      setScanResultWebCam(result);
     }
-   }
-   const Ejemplo = false;
+  }
   return (
     <Container>
       <AppBar className='appBar' position="static">
         <Toolbar>
-            
           <Typography fontSize={14} noWrap component="div" align='center' paddingLeft={2} sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}>
             Escanera QR
           </Typography>
-            
         </Toolbar>
       </AppBar>
       <Card>
@@ -73,7 +67,6 @@ export const PruebaQr = () => {
                     var data = result.text
                     var texto = 'https://'
                     var texto2 = 'http://'
-                    
 
                     if(data.includes(texto) || data.includes(texto2)){
                       console.log(result.text)
@@ -103,18 +96,10 @@ export const PruebaQr = () => {
                 value={scanResultWebCam}
                 top={10}
               />
-              {/* <h2>Resultados de escaner: {scanResultWebCam}</h2> */}
-
               {
-                      
                 link && <a  href={scanResultWebCam}>link</a>
-                
               }
-              
-               
             </Grid> 
-            
-            
             <Grid item xl={12} lg={12} md={12} sm={12} xs={12} style={{textAlign: 'center'}}>
               <h2>Crear QR</h2>
               <TextField label="Escriba" onChange={(e) => setText(e.target.value)}  size="small"/>
@@ -125,7 +110,8 @@ export const PruebaQr = () => {
               {imageUrl ? (
                 <a href={imageUrl} download>
                     <img src={imageUrl} alt="img"/>
-                </a>) : null} 
+                </a>) : null
+              } 
             </Grid>
 
             <Grid item xl={4} lg={4} md={6} sm={12} xs={12}>
