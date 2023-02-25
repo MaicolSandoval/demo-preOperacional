@@ -1,7 +1,9 @@
 import React, {useState, useRef} from 'react';
-import {Container, Card, CardContent, makeStyles, Grid, TextField, Button} from '@mui/material';
+import {Container, Card, CardContent, makeStyles, Grid, TextField, Button, AppBar, Toolbar, Typography} from '@mui/material';
+import EventIcon from '@mui/icons-material/Event';
 import QRCode from 'qrcode';
 import {QrReader} from 'react-qr-reader';
+import { Encabezado } from './Encabezado';
 
 
 export const PruebaQr = () => { 
@@ -10,6 +12,7 @@ export const PruebaQr = () => {
   const [imageUrl, setImageUrl] = useState('');
   const [scanResultFile, setScanResultFile] = useState('');
   const [scanResultWebCam, setScanResultWebCam] =  useState('');
+  const [link, setLink] = useState(false)
 //   const classes = useStyles();
   const qrRef = useRef(null);
 
@@ -42,13 +45,22 @@ export const PruebaQr = () => {
         setScanResultWebCam(result);
     }
    }
+   const Ejemplo = false;
   return (
     <Container>
+      <AppBar className='appBar' position="static">
+        <Toolbar>
+            
+          <Typography fontSize={14} noWrap component="div" align='center' paddingLeft={2} sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}>
+            Escanera QR
+          </Typography>
+            
+        </Toolbar>
+      </AppBar>
       <Card>
         <CardContent>
           <Grid container spacing={2}>
             <Grid item xl={12} lg={12} md={12} sm={12} xs={12} style={{textAlign:"center"}}>
-              <h2>Escanear QR</h2>
               <QrReader
                 key="environment"
                 constraints={{ facingMode: 'environment' }}
@@ -58,8 +70,22 @@ export const PruebaQr = () => {
                 onScan={handleScanWebCam}
                 onResult={(result, error) => {
                   if (!!result) {
-                    console.log(result.text)
-                    setScanResultWebCam(result?.text);
+                    var data = result.text
+                    var texto = 'https://'
+                    
+
+                    if(data.includes(texto)){
+                      console.log(result.text)
+                      setScanResultWebCam(result?.text);
+                      setLink(true)
+
+                    }else{
+                      const dataJson = JSON.parse(result.text);
+                      const data = dataJson.documento[0];
+                      const array = Object.values(data);
+                      setScanResultWebCam(array);
+                      setLink(false)
+                    }
                   }
         
                   if (!!error && result) {
@@ -67,8 +93,23 @@ export const PruebaQr = () => {
                   }
                 }}
               /> 
-              <h2>Resultados de escaner: {scanResultWebCam}</h2> 
-              <a  href={scanResultWebCam}>link</a>
+              <TextField
+                fullWidth 
+                id="outlined-multiline-static"
+                label="Resultados de escaner"
+                multiline
+                rows={4}
+                value={scanResultWebCam}
+              />
+              {/* <h2>Resultados de escaner: {scanResultWebCam}</h2> */}
+
+              {
+                      
+                link && <a  href={scanResultWebCam}>link</a>
+                
+              }
+              
+               
             </Grid> 
             
             
