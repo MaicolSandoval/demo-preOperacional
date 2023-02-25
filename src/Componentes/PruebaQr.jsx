@@ -100,6 +100,7 @@ export const PruebaQr = () => {
                 multiline
                 rows={4}
                 value={scanResultWebCam}
+                top={10}
               />
               {/* <h2>Resultados de escaner: {scanResultWebCam}</h2> */}
 
