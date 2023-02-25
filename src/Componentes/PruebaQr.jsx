@@ -72,9 +72,10 @@ export const PruebaQr = () => {
                   if (!!result) {
                     var data = result.text
                     var texto = 'https://'
+                    var texto2 = 'http://'
                     
 
-                    if(data.includes(texto)){
+                    if(data.includes(texto) || data.includes(texto2)){
                       console.log(result.text)
                       setScanResultWebCam(result?.text);
                       setLink(true)
