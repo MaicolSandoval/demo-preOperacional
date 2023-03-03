@@ -60,8 +60,11 @@ export const EscanearQR = () => {
               <QrReader
                 key="environment"
                 constraints={{ facingMode: 'environment' }}
-                delay={300}
-                //style={{width: '100%'}}
+                delay={400}
+                style={{width: '100%'}}
+                containerStyle={{height: '100%'}}
+                videoContainerStyle={{height: '100%',paddingTop: '75%'}}
+                videoStyle={{width: '100%', height: '100%'}}
                 onError={handleErrorWebCam}
                 onScan={handleScanWebCam}
                 onResult={(result, error) => {
@@ -82,9 +85,9 @@ export const EscanearQR = () => {
                   <Card style={{padding:'15px'}}>
                       <TableContainer component={Paper}>
                         <Table aria-label="simple table">
-                          <TableHead>
+                          <TableHead style={{background:'#003972'}}>
                             <TableRow rowSpan>
-                              <TableCell colSpan={2} style={{textAlign: 'center'}}>
+                              <TableCell colSpan={2} style={{textAlign: 'center', color:'white'}}>
                                 <h6>Información del equipo</h6>
                                 </TableCell>
                             </TableRow>
