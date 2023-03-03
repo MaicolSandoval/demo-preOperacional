@@ -60,10 +60,12 @@ export const EscanearQR = () => {
                 onResult={(result, error) => {
                   if (!!result) {
 
-                    setScanResultWebCam(result?.text);
+                    
                     const dataJson = JSON.parse(result.text);
                     const data = Object.values(dataJson);
                     console.log(data)
+
+                    setScanResultWebCam(data);
 
          
                 
@@ -89,19 +91,21 @@ export const EscanearQR = () => {
                     console.info(error);
                   }
                 }}
-              /> 
-              <TextField
-                fullWidth 
-                id="outlined-multiline-static"
-                label="Resultados de escaner"
-                multiline
-                rows={4}
-                value={scanResultWebCam}
-                top={10}
               />
-              {
-                link && <a  href={scanResultWebCam}>link</a>
-              }
+                { scanResultWebCam &&
+                  <>
+                    <Card style={{textAlign: 'left', padding: '15px'}}>
+                      <h5 style={{textAlign: 'center'}}>Información del equipo</h5>
+                      <Typography>Id: {scanResultWebCam[0]}</Typography>
+                      <Typography>Equipo: {scanResultWebCam[1]}</Typography>
+                      <Typography>Marca: {scanResultWebCam[2]}</Typography>
+                      <br/>
+                      <a  style={{textAlign: 'center'}} href={scanResultWebCam}>link</a>
+                    </Card>
+                  </>
+                }
+                
+              
             </Grid> 
           </Grid>
         </CardContent>
