@@ -18,12 +18,17 @@ export const Encabezado = (props) => {
     }
 
     return(
-        <div className="encabezado2">
+        <div className={props.encabezado == 'secundario' ? "encabezado2" : ""  }>
             <Grid>
                 <Grid item xs={12} sm={12} md={12}>
                     <Box sx={{ flexGrow: 1 }}>
                         <AppBar className='appBar' position="static">
                             <Toolbar>
+                                {props.texto ? 
+                                    <Typography fontSize={14} noWrap component="div" align='center' paddingLeft={2} sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}>
+                                     {props.texto}
+                                    </Typography> : ''
+                                }
                                 { props.calendario ? <EventIcon fontSize='large'/> : ''}
                                 { props.volver ? <Button style={{color: 'white'}}><ArrowBackIosIcon/>Volver</Button>  : ''}
                                 { props.fecha ? 
@@ -39,10 +44,12 @@ export const Encabezado = (props) => {
                     </Box>
                 </Grid>
             </Grid>
-            <div className='textoEncabezado'>
-                <h2>Hola { props.usuario }</h2>
-                <p>¿Con qué equipo vas a trabajar hoy?</p>
-            </div>
+            {props.texto == "datosEncabezado" ? 
+                <div className='textoEncabezado'>
+                    <h2>Hola { props.usuario }</h2>
+                    <p>¿Con qué equipo vas a trabajar hoy?</p>
+                </div>
+            : ""}
         </div>
     )
 

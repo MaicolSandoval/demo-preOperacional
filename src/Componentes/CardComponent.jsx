@@ -62,11 +62,13 @@ export default function CardComponent(){
         }
     }
 
-    const ValidacionEjemplo = () => {
+    const MenuQr = () => {
        return(
-            navigation('/PruebaQr')
+            navigation('/MenuQR')
         )
     }
+
+
 
     // useEffect(()=>{
     //     preToken = 1
@@ -130,9 +132,10 @@ export default function CardComponent(){
                         <Button variant="contained" disableElevation className="botonIngresar" onClick={ValidacionLogin}>
                             <Typography>Ingresar</Typography> 
                         </Button>
-                        <Button variant="contained" disableElevation className="botonIngresar" onClick={ValidacionEjemplo}>
-                            <Typography>Demo QR</Typography> 
+                        <Button variant="contained" disableElevation className="botonIngresar" onClick={MenuQr}>
+                            <Typography>Menú QR</Typography> 
                         </Button>
+                       
                     </Stack>
                     <ImgComponent src={sinco} style={{width: 130, height: 70, margin: 'auto', marginTop: '5%'}} />
                 </CardContent>
