@@ -3,6 +3,13 @@ import {Container, Card, CardContent, makeStyles, Grid, TextField, Button, AppBa
 import QRCode from 'qrcode';
 import {QrReader} from 'react-qr-reader';
 import { Encabezado } from "../../Componentes/Encabezado";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 export const EscanearQR = () => { 
 
@@ -72,14 +79,51 @@ export const EscanearQR = () => {
               />
                 { scanResultWebCam &&
                   <>
-                    <Card style={{textAlign: 'left', padding: '15px'}}>
+                  <Card style={{padding:'15px'}}>
+                      <TableContainer component={Paper}>
+                        <Table aria-label="simple table">
+                          <TableHead>
+                            <TableRow rowSpan>
+                              <TableCell colSpan={2} style={{textAlign: 'center'}}>
+                                <h6>Información del equipo</h6>
+                                </TableCell>
+                            </TableRow>
+                          </TableHead>
+                          <TableBody>
+
+                          <TableRow key={scanResultWebCam} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                <TableCell align="left">Id</TableCell>
+                                <TableCell align="left">{scanResultWebCam[0]}</TableCell>
+                          </TableRow>
+                          <TableRow key={scanResultWebCam} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                <TableCell align="left">Equipo</TableCell>
+                                <TableCell align="left">{scanResultWebCam[1]}</TableCell>
+                          </TableRow>
+                          <TableRow key={scanResultWebCam} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                <TableCell align="left">Marca</TableCell>
+                                <TableCell align="left">{scanResultWebCam[2]}</TableCell>
+                          </TableRow>
+
+
+                            {/* {scanResultWebCam.map((scanResultWebCam) => (
+                              <TableRow key={scanResultWebCam} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                <TableCell align="left">Id</TableCell>
+                                <TableCell align="left">{scanResultWebCam}</TableCell>
+                              </TableRow>
+                            ))} */}
+                          </TableBody>
+                        </Table>
+                      </TableContainer>
+                    </Card>
+
+                    {/* <Card style={{textAlign: 'left', padding: '15px'}}>
                       <h5 style={{textAlign: 'center'}}>Información del equipo</h5>
                       <Typography>Id: {scanResultWebCam[0]}</Typography>
                       <Typography>Equipo: {scanResultWebCam[1]}</Typography>
                       <Typography>Marca: {scanResultWebCam[2]}</Typography>
                       <br/>
                       <a  style={{textAlign: 'center'}} href={scanResultWebCam}>link</a>
-                    </Card>
+                    </Card> */}
                   </>
                 }
                 
