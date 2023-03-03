@@ -46,45 +46,23 @@ export const EscanearQR = () => {
   return (
     <Container style={{padding: '0px'}}>
       <Encabezado texto="Escanear QR"/> 
-      <Card>
         <CardContent style={{padding: '0px'}}>
+        <Card>
           <Grid>
             <Grid item xl={12} lg={12} md={12} sm={12} xs={12} style={{textAlign:"center"}}>
               <QrReader
                 key="environment"
                 constraints={{ facingMode: 'environment' }}
                 delay={300}
-                style={{width: '100%'}}
+                //style={{width: '100%'}}
                 onError={handleErrorWebCam}
                 onScan={handleScanWebCam}
                 onResult={(result, error) => {
                   if (!!result) {
-
-                    
                     const dataJson = JSON.parse(result.text);
                     const data = Object.values(dataJson);
                     console.log(data)
-
                     setScanResultWebCam(data);
-
-         
-                
-                    // var data = result.text
-                    // var texto = 'https://'
-                    // var texto2 = 'http://'
-
-                    // if(data.includes(texto) || data.includes(texto2)){
-                    //   console.log(result.text)
-                    //   setScanResultWebCam(result?.text);
-                    //   setLink(true)
-
-                    // }else{
-                    //   const dataJson = JSON.parse(result.text);
-                    //   const data = dataJson.documento[0];
-                    //   const array = Object.values(data);
-                    //   setScanResultWebCam(array);
-                    //   setLink(false)
-                    // }
                   }
         
                   if (!!error && result) {
@@ -108,8 +86,8 @@ export const EscanearQR = () => {
               
             </Grid> 
           </Grid>
+          </Card>
         </CardContent>
-      </Card>
     </Container>
   );
 }
