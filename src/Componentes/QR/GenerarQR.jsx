@@ -1,5 +1,5 @@
 import React, {useState, useRef} from 'react';
-import {Container, Card, CardContent, Grid, TextField, Button, Autocomplete} from '@mui/material';
+import {Container, Card, CardContent, Grid, TextField, Button, Autocomplete, Typography} from '@mui/material';
 //import QRCode from 'qrcode';
 import iconoEmpresa from '../../Imagenes/iconoEmpresa.png'
 import { QRCode } from 'react-qrcode-logo';
@@ -41,7 +41,6 @@ export const GenerarQR = () => {
             seTexto(JSON.stringify({ id ,equipo , marca}))
             setEstado(true)
         }
-        setEquipo('')
     }
 
     const downloadQRCode = () => {
@@ -86,7 +85,9 @@ export const GenerarQR = () => {
                             </div>                       
                         </>                                                                           
                     }
-                    <h7 style={{textAlign: 'center'}}>Datos para generar QR</h7>
+                    <Typography style={{textAlign: 'center'}}>
+                        Datos para generar QR
+                    </Typography>
                     <TextField className='text' margin="dense" required fullWidth name="id" size="small" label="Id" value={id}  onChange={ onInput } id="id" autoComplete="id" autoFocus />
                     <TextField className='text' margin="dense" required fullWidth name="equipo" size="small" label="Equipo" value={equipo}  onChange={ onInput } id="equipo" autoComplete="equipo"/>
                     <TextField className='text' margin="dense" required fullWidth name="marca" size="small" label="Marca" value={marca}  onChange={ onInput }  id="marca" autoComplete="marca"/>

@@ -44,7 +44,7 @@ export const Encabezado = (props) => {
                     </Box>
                 </Grid>
             </Grid>
-            {props.texto == "datosEncabezado" ? 
+            {props.mostrarinfo ? 
                 <div className='textoEncabezado'>
                     <h2>Hola { props.usuario }</h2>
                     <p>¿Con qué equipo vas a trabajar hoy?</p>

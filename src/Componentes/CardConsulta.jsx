@@ -11,7 +11,7 @@ import { Encabezado } from "./Encabezado";
 export const CardConsulta = () => {
     return (
         <>
-            <Encabezado encabezado = 'consulta' calendario={true} fecha={true} menu={true} usuario={'Michael'}/>
+            <Encabezado encabezado = 'secundario' mostrarinfo = {true} calendario={true} fecha={true} menu={true} usuario={'Michael'}/>
             <div className="contenedorCardConsulta">
                 <div className="contenedorInputConsulta">
                     <Stack>

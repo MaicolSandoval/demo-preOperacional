@@ -50,6 +50,11 @@ export const EscanearQR = () => {
       setScanResultWebCam(result);
     }
   }
+  const NuevoCodigo = () => {
+    return(
+      setScanResultWebCam('')
+    )
+  }
   return (
     <Container style={{padding: '0px'}}>
       <Encabezado texto="Escanear QR"/> 
@@ -69,7 +74,8 @@ export const EscanearQR = () => {
                 onScan={handleScanWebCam}
                 onResult={(result, error) => {
                   if (!!result) {
-                    const dataJson = JSON.parse(result.text);
+                    const dataJson = JSON.parse(result?.text);
+                    console.log(dataJson)
                     const data = Object.values(dataJson);
                     console.log(data)
                     setScanResultWebCam(data);
@@ -117,16 +123,8 @@ export const EscanearQR = () => {
                           </TableBody>
                         </Table>
                       </TableContainer>
+                      <Button onClick={NuevoCodigo} id="CrearQr" type="submit" fullWidth variant="contained" sx={{ mt: 1, mb: 1}}>Nueva consulta</Button>
                     </Card>
-
-                    {/* <Card style={{textAlign: 'left', padding: '15px'}}>
-                      <h5 style={{textAlign: 'center'}}>Información del equipo</h5>
-                      <Typography>Id: {scanResultWebCam[0]}</Typography>
-                      <Typography>Equipo: {scanResultWebCam[1]}</Typography>
-                      <Typography>Marca: {scanResultWebCam[2]}</Typography>
-                      <br/>
-                      <a  style={{textAlign: 'center'}} href={scanResultWebCam}>link</a>
-                    </Card> */}
                   </>
                 }
                 
