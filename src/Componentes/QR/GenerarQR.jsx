@@ -6,14 +6,10 @@ import { QRCode } from 'react-qrcode-logo';
 import { Encabezado } from "../Encabezado";
 
 const top100Films = [
-    { label: 'The Shawshank Redemption', year: 1994 },
-    { label: 'The Godfather', year: 1972 },
-    { label: 'The Godfather: Part II', year: 1974 },
-    { label: 'The Dark Knight', year: 2008 },
-    { label: '12 Angry Men', year: 1957 },
-    { label: "Schindler's List", year: 1993 },
-    { label: 'Pulp Fiction', year: 1994 },
-  ];
+    { id: 'mCarga', label: 'monta carga', marca: 'pollito' },
+    { id: 'tal', label: 'taladro', marca: 'pollito' },
+    { id: 'comp', label: 'compresor', marca: 'pollito' },
+];
 
 export const GenerarQR = () => { 
     const [id, setId] = useState('')
@@ -21,6 +17,7 @@ export const GenerarQR = () => {
     const [marca, setMarca] = useState('')
     const [texto, seTexto] = useState('')
     const [estado, setEstado] = useState(false)
+    const [autoc, setAutoc] = useState('')
 
     const estilosContenidoCard ={
         padding: '19%',
@@ -30,6 +27,7 @@ export const GenerarQR = () => {
       
 
     const onInput =({target}) =>{
+        console.log(target.value)
         if (target.name==='id')        setId(target.value)      
         if (target.name==='equipo')     setEquipo(target.value)      
         if (target.name==='marca')     setMarca(target.value)   
@@ -91,7 +89,7 @@ export const GenerarQR = () => {
                     <TextField className='text' margin="dense" required fullWidth name="id" size="small" label="Id" value={id}  onChange={ onInput } id="id" autoComplete="id" autoFocus />
                     <TextField className='text' margin="dense" required fullWidth name="equipo" size="small" label="Equipo" value={equipo}  onChange={ onInput } id="equipo" autoComplete="equipo"/>
                     <TextField className='text' margin="dense" required fullWidth name="marca" size="small" label="Marca" value={marca}  onChange={ onInput }  id="marca" autoComplete="marca"/>
-                    {/* <Autocomplete   disablePortal margin="normal" id="combo-box-Sucursal"  options={top100Films} sx={{ width: 320, marginTop: 1 }} renderInput={(params) => <TextField {...params} label="Sucursal" />}    />      */}
+                    {/* <Autocomplete  disablePortal margin="normal" id="combo-box-Sucursal" size="small"  options={top100Films} value={autoc}  onChange={ onInput } sx={{ width: 320, marginTop: 1 }} renderInput={(params) => <TextField {...params} label="" />}    />      */}
                     <Button  onClick={ CrearQr } id="CrearQr" type="submit" fullWidth variant="contained" sx={{ mt: 1, mb: 1}}>Crear Qr</Button>
                 </CardContent>
             </Card>

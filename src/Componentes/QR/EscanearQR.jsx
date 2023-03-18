@@ -101,6 +101,27 @@ export const EscanearQR = () => {
                           <TableBody>
 
                           <TableRow key={scanResultWebCam} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                <TableCell align="left">Equipo</TableCell>
+                                <TableCell align="left">{scanResultWebCam[0]}</TableCell>
+                          </TableRow>
+                          <TableRow key={scanResultWebCam} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                <TableCell align="left">Placa</TableCell>
+                                <TableCell align="left">{scanResultWebCam[1]}</TableCell>
+                          </TableRow>
+                          <TableRow key={scanResultWebCam} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                <TableCell align="left">Grupo</TableCell>
+                                <TableCell align="left">{scanResultWebCam[2]}</TableCell>
+                          </TableRow>
+                          <TableRow key={scanResultWebCam} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                <TableCell align="left">Plan</TableCell>
+                                <TableCell align="left">{scanResultWebCam[3]}</TableCell>
+                          </TableRow>
+                          <TableRow key={scanResultWebCam} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                <TableCell align="left">Fecha</TableCell>
+                                <TableCell align="left">{scanResultWebCam[4]}</TableCell>
+                          </TableRow>
+
+                          {/* <TableRow key={scanResultWebCam} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                 <TableCell align="left">Id</TableCell>
                                 <TableCell align="left">{scanResultWebCam[0]}</TableCell>
                           </TableRow>
@@ -111,7 +132,7 @@ export const EscanearQR = () => {
                           <TableRow key={scanResultWebCam} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                 <TableCell align="left">Marca</TableCell>
                                 <TableCell align="left">{scanResultWebCam[2]}</TableCell>
-                          </TableRow>
+                          </TableRow> */}
 
 
                             {/* {scanResultWebCam.map((scanResultWebCam) => (
